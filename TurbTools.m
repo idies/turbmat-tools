@@ -105,6 +105,7 @@ classdef TurbTools < handle
                 end
             end
             
+	    % Check if Turbmat is already in path
             if ~exist('TurbulenceService', 'file')
                 
                 % Look for Turbmat in Turbmat-Tools and parent directories
