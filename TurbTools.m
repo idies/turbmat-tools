@@ -42,7 +42,7 @@ classdef TurbTools < handle
     properties (Constant)
         % ---- Global constants ----
         TIME_OFFSET_MAX = 1024
-        SPACING = 2.0*pi/1023
+        SPACING = 2.0*pi/1024
         TIME_SPACING = 0.002
         KOLMOGOROV_LENGTH = 0.00287
         KOLMOGOROV_TIME = 0.0446
