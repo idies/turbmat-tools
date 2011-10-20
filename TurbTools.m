@@ -99,10 +99,20 @@ classdef TurbTools < handle
             % See if we have an authtoken.txt file
             fid = fopen('authtoken.txt');
             if fid > 0
-                token = fgets(fid);
+                % fgets retains the newline character and breaks on Linux
+                %token = fgets(fid);
+                
+                % fgetl disregards newline character and works on Linux
+                %token = fgetl(fid);
+                
+                % Makes no assumption a/b newline character - just reads
+                % string - probably more portable
+                token = fscanf(fid,'%s');
+                
                 if ischar(token)
                     PT.c_authkey = token;
                 end
+                fclose(fid);
             end
             
 	    % Check if Turbmat is already in path
@@ -962,16 +972,19 @@ classdef TurbTools < handle
         % Set two-dimensional or three-dimensional figure attributes
         function setFigureAttributes(PT, type, cl_labels)
             
-            if strcmp(type, '2d')
+            if strcmp(type, '1d')
+                xlabel(cl_labels{1}, 'FontSize', 12, 'FontWeight', 'bold');
+                ylabel(cl_labels{2}, 'FontSize', 12, 'FontWeight', 'bold');
+                set(gca, 'TickDir', 'out', 'TickLength', [.02 .02],'XMinorTick', 'on', 'YMinorTick', 'on');
+                axis equal;                        
+            elseif strcmp(type, '2d')
                 xlabel(cl_labels{1}, 'FontSize', 12, 'FontWeight', 'bold');
                 ylabel(cl_labels{2}, 'FontSize', 12, 'FontWeight', 'bold');
                 colorbar;
                 colormap(PT.c_colormap);
                 set(gca, 'TickDir', 'out', 'TickLength', [.02 .02],'XMinorTick', 'on', 'YMinorTick', 'on');
                 axis equal;
-            end
-            
-            if strcmp(type, '3d')
+            elseif strcmp(type, '3d')
                 xlabel(cl_labels{1}, 'FontSize', 12, 'FontWeight', 'bold');
                 ylabel(cl_labels{2}, 'FontSize', 12, 'FontWeight', 'bold');
                 zlabel(cl_labels{3}, 'FontSize', 12, 'FontWeight', 'bold');

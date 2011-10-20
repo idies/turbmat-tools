@@ -87,7 +87,7 @@ fprintf('Mean inline velocity: %1.4f. Variance: %1.4f. Mean squared: %1.4f. Stan
 %
 
 x_figure = TT.startFigure(1);
-subplot(2,2,1);
+subplot(2,10,[1 10]);
 
 keys = fieldnames(s_inlineVel);
 x = linspace(0,2*pi,1024);
@@ -101,13 +101,13 @@ end
 % Style figure
 grid;
 title(sprintf('Inline velocity for %i random lines', i_lines), 'FontSize', 12, 'FontWeight', 'bold');
-TT.setFigureAttributes('2d', {'x_a', 'v_a'});
+TT.setFigureAttributes('1d', {'x', 'v'});
 
 %
 % ---- Plot random lines in space ----
 %
 
-subplot(2,2,3);
+subplot(2,10,[18 20]);
 keys = fieldnames(s_lines);
 for i = 1:numel(keys);
     key = char(keys(i));
@@ -123,7 +123,7 @@ TT.setFigureAttributes('3d', {'x', 'y', 'z'});
 %
 
 [kEta E] = TT.scaleEnergySpectrum(k(1:n/2+1), pwr(1:n/2+1));
-
+subplot(2,10,[11 17]);
 %subplot(2,2,[2 4]);
 x_plot = loglog(kEta, E/1024);
 
