@@ -87,7 +87,7 @@ fprintf('Mean inline velocity: %1.4f. Variance: %1.4f. Mean squared: %1.4f. Stan
 %
 
 x_figure = TT.startFigure(1);
-subplot(2,10,[1 10]);
+subplot(2,10,[2 9]);
 
 keys = fieldnames(s_inlineVel);
 x = linspace(0,2*pi,1024);
@@ -102,12 +102,14 @@ end
 grid;
 title(sprintf('Inline velocity for %i random lines', i_lines), 'FontSize', 12, 'FontWeight', 'bold');
 TT.setFigureAttributes('1d', {'x', 'v'});
+% Adjust axis from default
+xlim([0.0 2*pi]);
 
 %
 % ---- Plot random lines in space ----
 %
 
-subplot(2,10,[18 20]);
+subplot(2,10,[17 20]);
 keys = fieldnames(s_lines);
 for i = 1:numel(keys);
     key = char(keys(i));
@@ -123,7 +125,7 @@ TT.setFigureAttributes('3d', {'x', 'y', 'z'});
 %
 
 [kEta E] = TT.scaleEnergySpectrum(k(1:n/2+1), pwr(1:n/2+1));
-subplot(2,10,[11 17]);
+subplot(2,10,[11 16]);
 %subplot(2,2,[2 4]);
 x_plot = loglog(kEta, E/1024);
 
@@ -136,8 +138,8 @@ plot(kEta2, EIS, 'b', 'LineWidth', 1.6);
 
 % Style figure
 grid;
-text(kEta2(20)*2, EIS(20)*2, 'E_{11} = (18/55) * 1.6 * (k*\eta)^{-5/3}');
+text(kEta2(20)*2, EIS(20)*2, 'E_{11} = (18/55) * 1.6 * (k\eta)^{-5/3}');
 title('Power spectrum', 'FontSize', 12, 'FontWeight', 'bold');
-ylabel('E_{11}/(\epsilon*\nu^5)^{1/4}', 'FontSize', 12, 'FontWeight', 'bold');
-xlabel('k*\eta', 'FontSize', 12, 'FontWeight', 'bold');
+ylabel('E_{11}/(\epsilon\nu^5)^{1/4}', 'FontSize', 12, 'FontWeight', 'bold');
+xlabel('k\eta', 'FontSize', 12, 'FontWeight', 'bold');
 set(gca, 'TickDir', 'out', 'TickLength', [.02 .02],'XMinorTick', 'on', 'YMinorTick', 'on');

@@ -976,7 +976,7 @@ classdef TurbTools < handle
                 xlabel(cl_labels{1}, 'FontSize', 12, 'FontWeight', 'bold');
                 ylabel(cl_labels{2}, 'FontSize', 12, 'FontWeight', 'bold');
                 set(gca, 'TickDir', 'out', 'TickLength', [.02 .02],'XMinorTick', 'on', 'YMinorTick', 'on');
-                axis equal;                        
+                %axis equal;                        
             elseif strcmp(type, '2d')
                 xlabel(cl_labels{1}, 'FontSize', 12, 'FontWeight', 'bold');
                 ylabel(cl_labels{2}, 'FontSize', 12, 'FontWeight', 'bold');
