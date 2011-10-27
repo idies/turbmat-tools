@@ -99,7 +99,7 @@ m_points = TT.fillRectangle(m_nQueryPoints, m_offsets, m_spacing);
 % Timestep loop
 for i_timeStep = 1:i_timeSteps
 
-    fprintf('Time step %i/%i, t = %1.4f\n', i_timeStep, i_timeSteps, f_time);
+    fprintf('Time step %i of %i, t = %1.4f\n', i_timeStep, i_timeSteps, f_time);
     
     cl_cacheParams = {TT.c_dataset, f_time, TT.c_spatialInt, TT.c_temporalInt, TT.c_spatialDiff, i_points, m_nQueryPoints, m_points(:,1), m_points(:,end)};
     TT.RC.cacheFilename = TT.createCacheFilename('getVelocity', cl_cacheParams);    
