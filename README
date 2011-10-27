@@ -9,6 +9,13 @@ The Johns Hopkins University / Eindhoven University of Technology
 Department of Mechanical Engineering
 edofrederix@jhu.edu, edofrederix@gmail.com
 
+Modified by:
+
+Jason Graham
+The Johns Hopkins University
+Department of Mechanical Engineering
+jgraha8@gmail.com
+
 ---- Summary -----------------------------------------------------------------
 
 Turbmat-Tools is a Matlab package with six ready-to-use scripts that make use
@@ -44,6 +51,11 @@ All code in this package is written by:
   Department of Mechanical Engineering
   edofrederix@jhu.edu, edofrederix@gmail.com
 
+  Jason Graham
+  The Johns Hopkins University
+  Department of Mechanical Engineering
+  jgraha8@gmail.com
+
 This package is shipped under the terms of the GNU General Public License
 version 3 or any later version. A copy of the GNU GPL v3 resides in this
 package. A more formal statement can be found at the bottom of this file.
@@ -71,7 +83,9 @@ As stated, this package contains a few example scripts. These scripts are:
     from 1 physical grid point to 256 grid points. This is the equivalent of
     around 2 to 550 Kolmogorov length scales. We can accumulate important
     turbulence statistics from the velocity increments, such as skewness and
-    kurtosis. This script presents these statistics in a few graphs.
+    kurtosis. This script presents these statistics in a few graphs. 
+
+    NOTE: The Matlab Statistics Toolbox is required for this script to work.
     
   * 1D Energy Spectrum. This script generates a provided number of randomly
     positioned and oriented lines, crossing the complete simulation domain

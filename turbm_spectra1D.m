@@ -8,9 +8,17 @@
 %
 % Written by:
 % 
-% Edo Frederix The Johns Hopkins University / Eindhoven University of
-% Technology Department of Mechanical Engineering edofrederix@jhu.edu,
-% edofrederix@gmail.com
+% Edo Frederix 
+% The Johns Hopkins University / Eindhoven University of Technology 
+% Department of Mechanical Engineering 
+% edofrederix@jhu.edu, edofrederix@gmail.com
+%
+% Modified by:
+%
+% Jason Graham
+% The Johns Hopkins University
+% Department of Mechanical Engineering
+% jgraha8@gmail.com
 %
 
 %

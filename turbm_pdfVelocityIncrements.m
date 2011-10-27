@@ -8,9 +8,10 @@
 %
 % Written by:
 % 
-% Edo Frederix The Johns Hopkins University / Eindhoven University of
-% Technology Department of Mechanical Engineering edofrederix@jhu.edu,
-% edofrederix@gmail.com
+% Edo Frederix 
+% The Johns Hopkins University / Eindhoven University of Technology 
+% Department of Mechanical Engineering 
+% edofrederix@jhu.edu, edofrederix@gmail.com
 %
 
 %
