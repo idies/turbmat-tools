@@ -93,7 +93,7 @@ if strcmp(c_relative, 'Yes'); i_relative = 1; else i_relative = 0; end
 f_time = TT.TIME_SPACING * i_timeOffset;
 i_points = prod(m_nQueryPoints);
 
-m_points = TT.fillRectangle(m_nQueryPoints, m_offsets, m_spacing);
+m_points = TT.fillRectangle(m_nQueryPoints, m_offsets, m_spacing, c_directions);
 
 
 % Timestep loop

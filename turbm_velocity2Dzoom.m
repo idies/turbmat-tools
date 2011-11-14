@@ -92,7 +92,7 @@ for i_step = 1:length(m_frameWidth)
     [m_nQueryPoints m_spacing] = TT.calculateQueryPoints(m_nPoints);
     m_offsets = [m_frameOffsets(i_step) m_frameOffsets(i_step) m_offsets(3)];
     
-    m_points = TT.fillRectangle(m_nQueryPoints, m_offsets, m_spacing); 
+    m_points = TT.fillRectangle(m_nQueryPoints, m_offsets, m_spacing, c_directions); 
     i_points = prod(m_nQueryPoints);
     
     cl_cacheParams = {TT.c_dataset, f_time, TT.c_spatialInt, TT.c_temporalInt, TT.c_spatialDiff, i_points, m_nQueryPoints, m_points(:,1), m_points(:,end)};
