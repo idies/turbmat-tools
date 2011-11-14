@@ -407,18 +407,18 @@ classdef TurbTools < handle
             chars(3) = c_surfDirection;
         end
         
-        % This function creates a 3 x i_points matrix with on row 1 all
-        % the direction1-coordinates, on row 2 all direction2-coordinates
-        % are given, and on row 3 all (constant) direction3-coordinates
-        % which equals the offset
-        function m_points = fillRectangle(~, m_nQueryPoints, m_offsets, m_spacing)
+        % This function creates a 3 x i_points matrix with the x-, y-, and
+        % z-components of the points to be queried. By looking at
+        % c_directions, we properly set the surface direction
+        function m_points = fillRectangle(~, m_nQueryPoints, m_offsets, m_spacing, c_directions)
             
-            xlin = linspace(0, (m_nQueryPoints(1)-1)*m_spacing(1), m_nQueryPoints(1)) + m_offsets(1);
-            ylin = linspace(0, (m_nQueryPoints(2)-1)*m_spacing(2), m_nQueryPoints(2)) + m_offsets(2);
+            lind1 = linspace(0, (m_nQueryPoints(1)-1)*m_spacing(1), m_nQueryPoints(1)) + m_offsets(1);
+            lind2 = linspace(0, (m_nQueryPoints(2)-1)*m_spacing(2), m_nQueryPoints(2)) + m_offsets(2);
             
-            m_points(1,:) = repmat(xlin, 1, m_nQueryPoints(2));
-            m_points(2,:) = reshape(repmat(ylin, m_nQueryPoints(1), 1), 1, m_nQueryPoints(1)*m_nQueryPoints(2));
-            m_points(3,:) = m_offsets(3);
+            m_points(strfind('xyz', c_directions(1)),:) = repmat(lind1, 1, m_nQueryPoints(2));
+            m_points(strfind('xyz', c_directions(2)),:) = reshape(repmat(lind2, m_nQueryPoints(1), 1), 1, m_nQueryPoints(1)*m_nQueryPoints(2));
+            m_points(strfind('xyz', c_directions(3)),:) = m_offsets(3);
+
         end       
         
         %
