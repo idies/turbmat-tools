@@ -96,7 +96,7 @@ m_colors = TT.createColors(i_nCubes);
 %
 
 TT.startFigure(1);
-subplot(2,2,[1 2]);
+subplot(2,2,[1; 3]);
 
 for step = 1:i_nCubes
     
@@ -184,7 +184,7 @@ end
 % ---- Plot PDF of first signal of every mode ----
 %
 
-subplot(2,2,3);
+subplot(2,2,2);
 
 keys = fieldnames(s_ltPDF);
 firstkey = keys{1};
