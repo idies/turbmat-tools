@@ -156,9 +156,13 @@ for i = 1:numel(keys)
         count = count+1;
         
         % PDF
-        [s_ltPDF.(key).x, s_ltPDF.(key).y, ~, ~, m_ltSF(count)] = TT.calculatePDF(s_lt.(key), i_pdfBins, f_pdfBinRatio, 1, 1); %#ok<SAGROW>
-        [s_tvPDF.(key).x, s_tvPDF.(key).y, ~, ~, m_tvSF(count)] = TT.calculatePDF(s_tv.(key), i_pdfBins, f_pdfBinRatio, 1, 1); %#ok<SAGROW>
-        
+        [s_ltPDF.(key).x, s_ltPDF.(key).y] = TT.calculatePDF(s_lt.(key), i_pdfBins, f_pdfBinRatio, 1, 1);
+        [s_tvPDF.(key).x, s_tvPDF.(key).y] = TT.calculatePDF(s_tv.(key), i_pdfBins, f_pdfBinRatio, 1, 1);
+
+        % Structure function
+        m_ltSF(count) = mean(s_lt.(key).^2); %#ok<SAGROW>
+        m_tvSF(count) = mean(s_tv.(key).^2); %#ok<SAGROW>
+
         % 3rd moment
         m_lt3rd(count) = moment(s_lt.(key), 3); %#ok<SAGROW>
         m_tv3rd(count) = moment(s_tv.(key), 3); %#ok<SAGROW>
