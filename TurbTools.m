@@ -620,7 +620,10 @@ classdef TurbTools < handle
         
         % Function to calculate the vector magnitude. Simply use
         % Pythagoras to do so for every component. This function also
-        % outputs the vector components in separate vectors
+        % outputs the vector components in separate vectors. 
+        % Of all four output variables, the index number corresponds to the
+        % direction number. So in u(i,j,k) i->x, j->y and k->z. Be aware:
+        % Matlab usually switches the first two indices in spatial data.
         function [u v w mag] = parseVector(~, m_results, m_nQueryPoints)
             
             magv = sqrt(m_results(1,:) .* m_results(1,:) + ...
@@ -631,13 +634,7 @@ classdef TurbTools < handle
             u = reshape(m_results(1,:), m_nQueryPoints);
             v = reshape(m_results(2,:), m_nQueryPoints);
             w = reshape(m_results(3,:), m_nQueryPoints);
-            
-            % X-direction horizontally, Y-direction vertical
-            mag = permute(mag, [2 1 3]);
-            u = permute(u, [2 1 3]);
-            v = permute(v, [2 1 3]);
-            w = permute(w, [2 1 3]);
-                
+  
         end
         
         % This function grabs the velocity components and subtracts the
@@ -917,9 +914,9 @@ classdef TurbTools < handle
                             % loop over different steps in direction
                             for k = 1:(size(VV, j)-incrSteps)
                                 if j == 1
-                                    df = VV(:, k+incrSteps, :) - VV(:, k, :);
-                                elseif j == 2
                                     df = VV(k+incrSteps, :, :) - VV(k, :, :);
+                                elseif j == 2
+                                    df = VV(:, k+incrSteps, :) - VV(:, k, :);
                                 else
                                     df = VV(:, :, k+incrSteps) - VV(:, :, k);
                                 end

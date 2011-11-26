@@ -138,7 +138,8 @@ for i_timeStep = 1:i_timeSteps
         ISO = reshape(m_pressureHesTrace, m_nQueryPoints);
         
     end
-
+    
+    % Gives permuted x and y dimensions (so m_X1(y,x,z), etc)
     [m_X1 m_X2 m_X3] = TT.meshgrid(m_nQueryPoints, m_offsets, m_spacing);
 
     %
@@ -159,6 +160,9 @@ for i_timeStep = 1:i_timeSteps
     % Show isosurfaces
     hold on;
     avg = mean(ISO(ISO>0));
+    
+    % Permute x and y, to agree with spatial data. So: ISO(y,x,z)
+    ISO = permute(ISO, [2 1 3]); 
     x_patch = TT.drawIsoPatch(ISO, m_X1, m_X2, m_X3, 2.5*avg, 6*avg, 3);
     
     % Style figure

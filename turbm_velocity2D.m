@@ -114,7 +114,12 @@ for i_timeStep = 1:i_timeSteps
     % --- Plot the velocity ---
     %
     
+    % Gives transposed c_directions(1) and c_directions(2) dimensions (so
+    % m_X1(c_directions(2),c_directions(1)), etc)
     [m_X1 m_X2] = TT.meshgrid(m_nQueryPoints, m_offsets, m_spacing);
+    
+    % Gives non-transposed c_directions(1) and c_directions(2) dimensions
+    % (so v_u(c_directions(1),c_directions(2)), etc)
     [v_u v_v v_w v_mag] = TT.parseVector(m_result3, m_nQueryPoints);
 
     if i_timeStep == 1
@@ -127,6 +132,10 @@ for i_timeStep = 1:i_timeSteps
         clf(x_figure, 'reset');
     end
 
+    % Tranpose velocity, to agree with spatial data. So:
+    % v_u(c_directions(1),c_directions(2))
+    v_u = transpose(v_u); v_v = transpose(v_v); v_w = transpose(v_w);
+    
     TT.drawCountours(v_w, m_X1, m_X2); hold on;
     TT.drawVectormap(v_u, v_v, m_X1, m_X2);
     
