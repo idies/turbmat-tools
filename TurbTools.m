@@ -1085,12 +1085,17 @@ classdef TurbTools < handle
             m_ones = ones(size(scalar));
             
             for i = linspace(startf, endf, npoints)
-                [x_faces x_verts x_colors] = isosurface(m_X1, m_X2, m_X3, scalar, i, m_ones*i);
+                
+                % Check if this iso level exists
+                if ~isempty(scalar(scalar>i))
+                    [x_faces x_verts x_colors] = isosurface(m_X1, m_X2, m_X3, scalar, i, m_ones*i);
 
-                x_patch = patch('Vertices', x_verts, 'Faces', x_faces, ... 
-                    'FaceVertexCData', x_colors, ...
-                    'FaceColor','interp', ... 
-                    'edgecolor', 'none');
+                    x_patch = patch('Vertices', x_verts, 'Faces', x_faces, ... 
+                        'FaceVertexCData', x_colors, ...
+                        'FaceColor','interp', ... 
+                        'edgecolor', 'none');
+                end
+                
             end
             
             if npoints > 1
