@@ -588,7 +588,7 @@ classdef TurbTools < handle
             J = permute(Jt, [2 1 3]);
             S = (J+Jt)/2;
             O = (J-Jt)/2;
-            St = permute(J, [2 1 3]);
+            St = permute(S, [2 1 3]);
             Ot = permute(O, [2 1 3]);
             
             multiply3dS = arrayfun(@(ind) S(:, :, ind) * St(:, :, ind), 1:size(S,3), 'uniformOutput', false);
