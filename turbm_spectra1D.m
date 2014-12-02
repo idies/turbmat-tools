@@ -1,16 +1,16 @@
 %
 % Turbmat-Tools - a Matlab library for querying, processing and visualizing
 % data from the JHU Turbulence Database
-%   
+%
 % TurbCache, part of Turbmat-Tools
 %
 
 %
 % Written by:
-% 
-% Edo Frederix 
-% The Johns Hopkins University / Eindhoven University of Technology 
-% Department of Mechanical Engineering 
+%
+% Edo Frederix
+% The Johns Hopkins University / Eindhoven University of Technology
+% Department of Mechanical Engineering
 % edofrederix@jhu.edu, edofrederix@gmail.com
 %
 % Modified by:
@@ -23,17 +23,17 @@
 
 %
 % This file is part of Turbmat-Tools.
-% 
+%
 % Turbmat-Tools is free software: you can redistribute it and/or modify it
 % under the terms of the GNU General Public License as published by the
 % Free Software Foundation, either version 3 of the License, or (at your
 % option) any later version.
-% 
+%
 % Turbmat-Tools is distributed in the hope that it will be useful, but
 % WITHOUT ANY WARRANTY; without even the implied warranty of
 % MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General
 % Public License for more details.
-% 
+%
 % You should have received a copy of the GNU General Public License along
 % with Turbmat-Tools.  If not, see <http://www.gnu.org/licenses/>.
 %
@@ -64,7 +64,7 @@ i_timeOffset = TT.checkChar(c_timeOffset, 'int', '', [0 1024]);
 cl_questions = {sprintf('Enter number of randomly generated lines')};
 cl_defaults = {'6'};
 c_lines = TT.askInput(cl_questions, cl_defaults);
-i_lines = TT.checkChar(c_lines, 'int', '', [0 Inf]);   
+i_lines = TT.checkChar(c_lines, 'int', '', [0 Inf]);
 
 %
 % ---- Construct the request ----
